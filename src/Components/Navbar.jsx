@@ -17,8 +17,8 @@ const Navbar = () => {
 
             <NavLink to='/add-review' className="flex items-center gap-1 hover:text-[#0d83fd]">Add Review</NavLink>
             <NavLink to='/watch-list' className="flex items-center gap-1 hover:text-[#0d83fd]">Game WatchList</NavLink>
-            <NavLink to='/auth/register' className="flex items-center gap-1 hover:text-[#0d83fd]">register</NavLink>
-            <NavLink to='/auth/rogin' className="flex items-center gap-1 hover:text-[#0d83fd]">Login</NavLink>
+
+
         </>
     );
 
@@ -58,6 +58,7 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                 <NavLink to='/auth/register' className="flex items-center gap-1 hover:text-[#0d83fd]">register</NavLink>
+                <NavLink to='/auth/login' className="flex items-center gap-1 hover:text-[#0d83fd]">Login</NavLink>
                 </div>
             </div>
         </div>
