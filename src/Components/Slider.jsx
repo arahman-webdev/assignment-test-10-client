@@ -3,6 +3,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css/effect-fade";
+import { Fade, Zoom  } from "react-awesome-reveal";
 
 const Slider = () => {
   // Array with image URLs and text for each slide
@@ -37,20 +38,33 @@ const Slider = () => {
     >
       {slides.map((slide, index) => (
         <SwiperSlide key={index} className="relative">
-          {/* Background Image */}
-          <div
-            className="w-full h-[850px] bg-cover bg-center rounded-lg transition-transform duration-700 transform hover:scale-105"
-            style={{ backgroundImage: `url(${slide.img})` }}
-          ></div>
-          {/* Overlay with Text */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#10058C] bg-opacity-50 rounded-lg">
-            <h2 className="text-[140px] font-bold mb-4 font-Roboto text-white uppercase">{slide.title}</h2>
-            <p className="text-lg text-white">{slide.description}</p>
-          </div>
-        </SwiperSlide>
+  {/* Background Image */}
+  <div
+    className="w-full h-[850px] bg-cover bg-center rounded-lg transition-transform duration-700 transform hover:scale-105"
+    style={{ backgroundImage: `url(${slide.img})` }}
+  ></div>
+
+  {/* Overlay with Animated Text */}
+  <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#10058C] bg-opacity-50 rounded-lg">
+    {/* Fade Animation for Title */}
+    <Fade triggerOnce>
+      <h2 className="text-[140px] font-bold mb-4 font-Roboto text-white uppercase">
+        {slide.title}
+      </h2>
+    </Fade>
+
+    {/* Zoom Animation for Description */}
+    <Zoom triggerOnce>
+      <p className="text-lg text-white">{slide.description}</p>
+    </Zoom>
+  </div>
+</SwiperSlide>
       ))}
     </Swiper>
   );
 };
 
 export default Slider;
+
+
+

@@ -7,7 +7,7 @@ import { AuthContext } from "../AuthProvider";
 const Navbar = () => {
 
 
-    const {user, signOutUser} = useContext(AuthContext)
+    const { user, signOutUser } = useContext(AuthContext)
     const [dropdown, setDropdown] = useState(false);
 
 
@@ -22,24 +22,29 @@ const Navbar = () => {
                 All Reviews
             </NavLink>
 
-           {
-            user?  <NavLink to='/add-review' className="flex items-center gap-1 hover:text-[#0d83fd]">Add Review</NavLink>: ''
-           }
-            <NavLink to='/watch-list' className="flex items-center gap-1 hover:text-[#0d83fd]">Game WatchList</NavLink>
+            {
+                user ? <NavLink to='/add-review' className="flex items-center gap-1 hover:text-[#0d83fd]">Add Review</NavLink> : ''
+            }
+            {
+                user ? <NavLink to='/watch-list' className="flex items-center gap-1 hover:text-[#0d83fd]">Game WatchList</NavLink> : ''
+            }
 
+            {
+                user ? <NavLink to='/my-reviews' className="flex items-center gap-1 hover:text-[#0d83fd]">My Reviews</NavLink> : ''
+            }
 
         </>
     );
 
 
-    const handleLogOut = () =>{
+    const handleLogOut = () => {
         signOutUser()
-        .then(res =>{
-            console.log(res)
-            setDropdown(false);
-        }).catch(error =>{
-            console.log(error)
-        })
+            .then(res => {
+                console.log(res)
+                setDropdown(false);
+            }).catch(error => {
+                console.log(error)
+            })
     }
 
 
@@ -68,7 +73,7 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
-                    <Link to='/' className="btn btn-ghost text-3xl font-bold font-Roboto text-[#CDF7FF]">Chill Gammer</Link> 
+                    <Link to='/' className="btn btn-ghost text-3xl font-bold font-Roboto text-[#CDF7FF]">Chill Gammer</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 gap-5  font-Roboto text-[#CDF7FF] text-base">
@@ -76,22 +81,22 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end text-[#ffffffa6]">
-                        {user ? (
-                            <div className="relative">
-                                <img
-                                    src={user.photoURL || "/default-avatar.png"}
-                                    alt="User"
-                                    className="w-10 h-10 rounded-full cursor-pointer"
-                                    onClick={() => setDropdown(!dropdown)}
-                                />
-                                {dropdown && (
-                                    <div className="absolute right-0 mt-2 bg-[#F4F5FE] shadow-md rounded-lg  z-50 border w-[300px] p-8">
-                                        <div className="w-500px">
-                                            <div>
-                                                <img 
+                    {user ? (
+                        <div className="relative">
+                            <img
+                                src={user.photoURL || "/default-avatar.png"}
+                                alt="User"
+                                className="w-10 h-10 rounded-full cursor-pointer"
+                                onClick={() => setDropdown(!dropdown)}
+                            />
+                            {dropdown && (
+                                <div className="absolute right-0 mt-2 bg-[#F4F5FE] shadow-md rounded-lg  z-50 border w-[300px] p-8">
+                                    <div className="w-500px">
+                                        <div>
+                                            <img
                                                 className="w-10 h-10 rounded-full mx-auto"
                                                 src={user.photoURL} alt="" />
-                                            </div>
+                                        </div>
                                         <p className="text-gray-700 font-semibold text-center">{user.displayName || "User"}</p>
                                         <hr className="my-2" />
                                         <button
@@ -102,16 +107,16 @@ const Navbar = () => {
                                             Sign Out
 
                                         </button>
-                                        </div>
                                     </div>
-                                )}
-                            </div>
-                        ) : (
-                            <Link to="/auth/login" className=" bg-[#CDF7FF] rounded-full px-6 py-2 text-black font-semibold font-Roboto">
-                                Login
-                            </Link>
-                        )}
-                    </div>
+                                </div>
+                            )}
+                        </div>
+                    ) : (
+                        <Link to="/auth/login" className=" bg-[#CDF7FF] rounded-full px-6 py-2 text-black font-semibold font-Roboto">
+                            Login
+                        </Link>
+                    )}
+                </div>
             </div>
         </div>
     );

@@ -6,10 +6,12 @@ import { AuthContext } from '../AuthProvider';
 
 const AddReview = () => {
 
-    const {name} = useContext(AuthContext)
+    const {user} = useContext(AuthContext)
 
     const handleAddReview = e =>{
         e.preventDefault();
+
+
        
     }
     return (
@@ -32,7 +34,13 @@ const AddReview = () => {
                                             <label className="label">
                                                 <span className="label-text">Name</span>
                                             </label>
-                                            <input type="text" placeholder="name" name='name' className="input input-bordered" required />
+                                            <input type="text" placeholder="name" name='name' value={user ? user.display : ""} readOnly className="input input-bordered" required />
+                                        </div>
+                                        <div className="form-control w-full">
+                                            <label className="label">
+                                                <span className="label-text">Email</span>
+                                            </label>
+                                            <input type="email" placeholder="name" name='name' value={user ? user.email : ""} readOnly className="input input-bordered" required />
                                         </div>
                                         <div className="form-control w-full">
                                             <label className="label">

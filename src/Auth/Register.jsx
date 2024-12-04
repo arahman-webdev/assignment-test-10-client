@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../AuthProvider';
 import googleImg from '../assets/images/google.png'
@@ -12,6 +12,7 @@ const Register = () => {
     const [success, setSuccess] = useState(null)
     const [errorMessage, setErrorMessage] = useState('')
     const navigate = useNavigate()
+    const location = useLocation()
     const handleRegister = e =>{
         e.preventDefault();
         console.log('clicked')
@@ -93,8 +94,7 @@ const Register = () => {
           .then((res) => {
             console.log("Google sign-in successful:", res.user);
             toastify("You are successfully signed in with Google!", "success");
-            const from = location.state?.from?.pathname || "/"; 
-            navigate(from, { replace: true }); 
+            navigate('/')
           })
           .catch((error) => {
             console.error("Google sign-in error:", error);
