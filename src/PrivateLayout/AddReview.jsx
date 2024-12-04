@@ -1,18 +1,18 @@
 import React, { useContext } from 'react';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
-import { Outlet } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider';
+import { Typewriter } from 'react-simple-typewriter'
 
 const AddReview = () => {
 
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
 
-    const handleAddReview = e =>{
+    const handleAddReview = e => {
         e.preventDefault();
 
 
-       
+
     }
     return (
         <div>
@@ -24,6 +24,23 @@ const AddReview = () => {
                     <div className='bg-[#F4F3F0] w-4/5 mx-auto mt-10 mb-10'>
                         <div className='p-10 text-center'>
                             <h2>Add New Coffee</h2>
+                            <h1 style={{ paddingTop: '5rem', margin: 'auto 0', fontWeight: 'normal' }}>
+                                Life is simple{' '}
+                                <span style={{ color: 'red', fontWeight: 'bold' }}>
+                                    {/* Style will be inherited from the parent element */}
+                                    <Typewriter
+                                        words={['Eat', 'Sleep', 'Code', 'Repeat!']}
+                                        loop={5}
+                                        cursor
+                                        cursorStyle='_'
+                                        typeSpeed={70}
+                                        deleteSpeed={50}
+                                        delaySpeed={1000}
+                                        // onLoopDone={handleDone}
+                                        // onType={handleType}
+                                    />
+                                </span>
+                            </h1>
                             <p>It is a long established fact that a reader will be distraceted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here.</p>
                         </div>
                         <div>
@@ -34,7 +51,7 @@ const AddReview = () => {
                                             <label className="label">
                                                 <span className="label-text">Name</span>
                                             </label>
-                                            <input type="text" placeholder="name" name='name' value={user ? user.display : ""} readOnly className="input input-bordered" required />
+                                            <input type="text" placeholder="name" name='name' value={user ? user.displayName : ""} readOnly className="input input-bordered" required />
                                         </div>
                                         <div className="form-control w-full">
                                             <label className="label">
