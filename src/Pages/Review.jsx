@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Review = ({review}) => {
 
@@ -14,7 +15,7 @@ const Review = ({review}) => {
                 <p>{reviewDescription}</p>
             </div>
             <div className='flex justify-center'>
-                <button className='bg-[#CDF7FF] px-4 py-2'>Explore Details</button>
+                <Link to={`/detail/${_id}`} className='bg-[#CDF7FF] px-4 py-2'>Explore Details</Link>
             </div>
         </div>
     );

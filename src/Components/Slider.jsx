@@ -45,7 +45,7 @@ const Slider = () => {
   ></div>
 
   {/* Overlay with Animated Text */}
-  <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#10058C] bg-opacity-50 rounded-lg">
+  <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#000] bg-opacity-65 rounded-lg">
     {/* Fade Animation for Title */}
     <Fade triggerOnce>
       <h2 className="text-[140px] font-bold mb-4 font-Roboto text-white uppercase">
