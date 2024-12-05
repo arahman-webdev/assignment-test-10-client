@@ -12,6 +12,7 @@ import PrivateWatchList from "../PrivateLayout/PrivateWatchList";
 import Watchlist from "../PrivateLayout/Watchlist";
 import PrivateMyReview from "../PrivateLayout/PrivateMyReview";
 import MyReview from "../PrivateLayout/MyReview";
+import Details from "../Pages/Details";
 
 
 
@@ -26,7 +27,12 @@ const router = createBrowserRouter([
                 element: <Home></Home>,
 
             },
-
+            
+            {
+                path: '/detail/:id',
+                element: <Details></Details>,
+                loader: ({params}) => fetch(`http://localhost:5000/reviews/${params.id}`)
+            }
         ]
     },
     {
