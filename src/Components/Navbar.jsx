@@ -30,7 +30,7 @@ const Navbar = () => {
             }
 
             {
-                user ? <NavLink to='/my-reviews' className="flex items-center gap-1 hover:text-[#0d83fd]">My Reviews</NavLink> : ''
+                user ? <NavLink to='/watch-list' className="flex items-center gap-1 hover:text-[#0d83fd]">My Reviews</NavLink> : ''
             }
 
         </>

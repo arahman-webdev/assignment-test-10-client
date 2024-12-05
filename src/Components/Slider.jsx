@@ -19,7 +19,7 @@ const Slider = () => {
       description: "Race through thrilling tracks, push limits, feel the adrenaline, and conquer speed challenges in the ultimate car racing experience.",
     },
     {
-      img: "https://i.ibb.co/NWfT592/brain.jpg",
+      img: "https://i.ibb.co.com/WFSk3nx/dragon.jpg",
       title: "Braining The Game",
       description: "Challenge yourself and unlock your gaming potential.",
     },
