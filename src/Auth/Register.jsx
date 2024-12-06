@@ -93,12 +93,20 @@ const Register = () => {
         signInWithGoogle()
           .then((res) => {
             console.log("Google sign-in successful:", res.user);
-            toastify("You are successfully signed in with Google!", "success");
+            Swal.fire({
+                title: "Good job!",
+                text: "Welcome back! You are successfully registered.!",
+                icon: "success"
+              });
             navigate('/')
           })
           .catch((error) => {
             console.error("Google sign-in error:", error);
-            toastify("Google sign-in failed. Please try again.", "error");
+            Swal.fire({
+                title: "Good job!",
+                text: "Welcome back! You are successfully registered.!",
+                icon: "success"
+              });
           });
       };
 

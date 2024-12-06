@@ -1,11 +1,13 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import googleImg from '../assets/images/google.png'
 import { AuthContext } from '../AuthProvider';
+import Swal from 'sweetalert2';
 const Login = () => {
 
     const { signInWithGoogle } = useContext(AuthContext)
     const [showPassword, setShowPassword] = useState(false)
+    const navigate = useNavigate()
 
     const handleLogin = e => {
         e.preventDefault();
@@ -19,13 +21,21 @@ const Login = () => {
         signInWithGoogle()
             .then((res) => {
                 console.log("Google sign-in successful:", res.user);
-                toastify("You are successfully signed in with Google!", "success");
+                Swal.fire({
+                    title: "Good job!",
+                    text: "Welcome back! You are successfully registered.!",
+                    icon: "success"
+                  });
                 const from = location.state?.from?.pathname || "/";
                 navigate(from, { replace: true });
             })
             .catch((error) => {
                 console.error("Google sign-in error:", error);
-                toastify("Google sign-in failed. Please try again.", "error");
+                Swal.fire({
+                    title: "Good job!",
+                    text: "Welcome back! You are successfully registered.!",
+                    icon: "success"
+                  });
             });
     };
 

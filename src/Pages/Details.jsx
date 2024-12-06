@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider";
 import { FaStar } from "react-icons/fa";
 import Swal from "sweetalert2";
@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 const Details = () => {
     const { user } = useContext(AuthContext)
     const review = useLoaderData();
+    const navigate = useNavigate()
     console.log(review)
 
     const handleWatchList = () => {
@@ -33,21 +34,28 @@ const Details = () => {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
-                    if(data.insertedId.length <0){
-                        Swal.fire({
-                            title: "Good job!",
-                            text: "You Added to WatchList!",
-                            icon: "success"
-                          });
-                    }else{
+                    if(data.insertedId){
                         Swal.fire({
                             icon: "error",
                             title: "Oops...",
-                            text: "You have already added! Try another",
-                            
+                            text: "Please register or login!",
+                            background: "#CDF7FF", // Set your desired background color
+                            color: "#111", // Optional: Set text color for better readability
+                            width: '450px',
                           });
                     }
                 })
+        }else{
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Please register or login!",
+                background: "#CDF7FF", // Set your desired background color
+                color: "#111", // Optional: Set text color for better readability
+                width: '450px',
+              });
+              
+            navigate('/auth/login')
         }
 
 
@@ -60,7 +68,7 @@ const Details = () => {
                         <img
                             src={review.photoUrl}
                             alt={review.gameTitle}
-                            className="w-96 h-96 object-cover rounded-lg"
+                            className="w-full h-96 object-cover rounded-lg"
                         />
                     </div>
                     <div>
