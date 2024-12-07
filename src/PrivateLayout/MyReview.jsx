@@ -32,7 +32,7 @@ const MyReview = () => {
       background: "#CDF7FF"
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/reviews/${id}`, { method: "DELETE" })
+        fetch(`https://assignment-test-10-server.vercel.app/reviews/${id}`, { method: "DELETE" })
           .then(res => res.json())
           .then(data => {
             if (data.deletedCount > 0) {

@@ -27,7 +27,7 @@ const Update = () => {
         const reviewDescription = form.reviewDescription.value;
         const upadatedReviewInfo = { name, email, gameTitle, genre, rating, publishingYear, photoUrl, reviewDescription }
 
-        fetch(`http://localhost:5000/reviews/${review._id}`, {
+        fetch(`https://assignment-test-10-server.vercel.app/reviews/${review._id}`, {
             method: "PUT",
             headers: {
                 "Content-type": "application/json"

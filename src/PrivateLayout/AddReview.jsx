@@ -43,7 +43,7 @@ if (loadingTimer) {
         const reviewDescription = form.reviewDescription.value;
         const reviewInfo = { name, email, gameTitle, genre, rating, publishingYear, photoUrl, reviewDescription }
         console.log(reviewInfo)
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://assignment-test-10-server.vercel.app/reviews', {
             method: "POST",
             headers: {
                 "Content-type": "application/json"

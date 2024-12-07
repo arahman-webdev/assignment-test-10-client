@@ -39,7 +39,7 @@ const Watchlist = () => {
             background: "#CDF7FF"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/watchlists/${id}`, {
+                fetch(`https://assignment-test-10-server.vercel.app/watchlists/${id}`, {
                     method: "DELETE",
                 })
                     .then(res => res.json())

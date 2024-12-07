@@ -26,31 +26,31 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/reviews/highest-rated')
+                loader: () => fetch('https://assignment-test-10-server.vercel.app/reviews/highest-rated')
 
             },
             
             {
                 path: '/detail/:id',
                 element: <Details></Details>,
-                loader: ({params}) => fetch(`http://localhost:5000/reviews/${params.id}`)
+                loader: ({params}) => fetch(`https://assignment-test-10-server.vercel.app/reviews/${params.id}`)
             },
             {
                 path: '/watch-list',
                 element: <PrivateWatchList><Watchlist></Watchlist></PrivateWatchList>,
-                loader: () => fetch('http://localhost:5000/watchlists')
+                loader: () => fetch('https://assignment-test-10-server.vercel.app/watchlists')
             },
             {
                 path: '/my-reviews',
                 element: <PrivateMyReview><MyReview></MyReview></PrivateMyReview>,
-                loader: () => fetch('http://localhost:5000/reviews')
+                loader: () => fetch('https://assignment-test-10-server.vercel.app/reviews')
             },
         ]
     },
     {
         path: '/all-reviews',
         element: <AllReviews></AllReviews>,
-        loader: () => fetch('http://localhost:5000/reviews')
+        loader: () => fetch('https://assignment-test-10-server.vercel.app/reviews')
     },
     {
         path: '/add-review',
@@ -75,7 +75,7 @@ const router = createBrowserRouter([
     {
         path: '/update/:id',
         element: <Update></Update>,
-        loader: ({params}) =>fetch(`http://localhost:5000/reviews/${params.id}`)
+        loader: ({params}) =>fetch(`https://assignment-test-10-server.vercel.app/reviews/${params.id}`)
     }
 ])
 

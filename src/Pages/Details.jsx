@@ -41,7 +41,7 @@ const Details = () => {
 
             const detailInfor = { coverPhoto, title, reviewer, reviewerEmail, reviewerRating, genre, reviewerDescription, publishingYear }
 
-            fetch('http://localhost:5000/watchlists', {
+            fetch('https://assignment-test-10-server.vercel.app/watchlists', {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json",
