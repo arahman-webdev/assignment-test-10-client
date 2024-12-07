@@ -5,6 +5,9 @@ import { AuthContext } from '../AuthProvider';
 import googleImg from '../assets/images/google.png'
 import { updateProfile } from 'firebase/auth';
 import { auth } from '../firebaseInit';
+import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css';
+
 
 const Register = () => {
 
@@ -113,18 +116,18 @@ const Register = () => {
 
     return (
         <div style={{ minHeight: 'calc(100vh - 200px)' }} className=' flex items-center'>
-            <div className="max-w-lg mx-auto bg-[#060D15]  dark:bg-gray-800 rounded-lg shadow-xl px-8 py-10 flex flex-col items-center justify-center w-full relative border">
+            <div className="max-w-lg mx-auto bg-[#060D15]  rounded-lg shadow-xl px-8 py-10 flex flex-col items-center justify-center w-full relative border">
                 <h1 className="text-xl font-bold text-center  dark:text-gray-200 mb-8 text-[#CDF7FF]">Register</h1>
                 <form onSubmit={handleRegister} className="w-full flex flex-col gap-4">
                     <div className="flex items-start flex-col justify-start">
-                        <label htmlFor="firstName" className="text-sm text-[#CDF7FF] dark:text-gray-200 mr-2">Name:</label>
+                        <label htmlFor="firstName" className="text-sm text-[#CDF7FF]  mr-2">Name:</label>
                         <input
                             type="text"
                             placeholder='name'
                             id="name"
                             name="name"
                             required
-                            className="w-full px-3 dark:text-gray-200 dark:bg-gray-900 py-2 rounded-md border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            className="w-full px-3 text-[#CDF7FF] bg-[#101A23] py-2 rounded-md border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500"
                         />
                     </div>
 
@@ -136,7 +139,7 @@ const Register = () => {
                             id="email"
                             name="email"
                             required
-                            className="w-full px-3 dark:text-gray-200 dark:bg-gray-900 py-2 rounded-md border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-1 focus:ring-[#101A23]"
+                            className="w-full px-3 text-[#CDF7FF] bg-[#101A23] py-2 rounded-md border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-1 focus:ring-[#101A23]"
                         />
                     </div>
 
@@ -147,7 +150,7 @@ const Register = () => {
                             placeholder='Photo url'
                             id="firstName"
                             name="photoUrl"
-                            className="w-full px-3 dark:text-gray-200 dark:bg-gray-900 py-2 rounded-md border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            className="w-full px-3 text-[#CDF7FF] bg-[#101A23] py-2 rounded-md border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500"
                         />
                     </div>
 
@@ -160,7 +163,7 @@ const Register = () => {
                             id="password"
                             name="password"
                             required
-                            className="w-full px-3 dark:text-black  py-2 rounded-md border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            className="w-full px-3 text-[#CDF7FF]  py-2 rounded-md bg-[#101A23] border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500"
                         />
                     </div>
 
@@ -173,8 +176,8 @@ const Register = () => {
                     {showPassword ? <FaEye /> : <FaEyeSlash />}
                 </div> */}
 
-                <div className="mt-4 text-center cursor-pointer">
-                    <p className='text-[#CDF7FF]'>Already have an account? <Link to='/auth/login' className="text-[#9be9f8]">Login now</Link></p>
+                <div className="mt-4 text-center ">
+                    <p className='text-[#CDF7FF]'>Already have an account? <Link to='/auth/login' className="text-[#9be9f8] cursor-pointer">Login now</Link></p>
                     
                 </div>
                 <div className="divider text-[#9be9f8]">OR</div>

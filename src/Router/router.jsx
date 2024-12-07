@@ -13,6 +13,7 @@ import Watchlist from "../PrivateLayout/Watchlist";
 import PrivateMyReview from "../PrivateLayout/PrivateMyReview";
 import MyReview from "../PrivateLayout/MyReview";
 import Details from "../Pages/Details";
+import Update from "../Pages/Update";
 
 
 
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
+                loader: () => fetch('http://localhost:5000/reviews/highest-rated')
 
             },
             
@@ -70,7 +72,11 @@ const router = createBrowserRouter([
             }
         ]
     },
-
+    {
+        path: '/update/:id',
+        element: <Update></Update>,
+        loader: ({params}) =>fetch(`http://localhost:5000/reviews/${params.id}`)
+    }
 ])
 
 export default router

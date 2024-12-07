@@ -3,25 +3,29 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css/effect-fade";
-import { Fade, Zoom  } from "react-awesome-reveal";
+import { Fade, Zoom } from "react-awesome-reveal";
+
 
 const Slider = () => {
   // Array with image URLs and text for each slide
   const slides = [
     {
       img: "https://i.ibb.co/NWfT592/brain.jpg",
-      title: "Braining The Game",
-      description: "Dive into a world of endless adventure and creativity.",
+      title: "Braining",
+      description: "The Game!",
+
     },
     {
       img: "https://i.ibb.co/thmVMyf/car-racing.jpg",
       title: "Car Racing",
-      description: "Race through thrilling tracks, push limits, feel the adrenaline, and conquer speed challenges in the ultimate car racing experience.",
+      description: "The Game!",
+
     },
     {
       img: "https://i.ibb.co.com/WFSk3nx/dragon.jpg",
-      title: "Braining The Game",
-      description: "Challenge yourself and unlock your gaming potential.",
+      title: "The Best",
+      description: "Dragon Game!",
+
     },
   ];
 
@@ -38,33 +42,40 @@ const Slider = () => {
     >
       {slides.map((slide, index) => (
         <SwiperSlide key={index} className="relative">
-  {/* Background Image */}
-  <div
-    className="w-full h-[850px] bg-cover bg-center rounded-lg transition-transform duration-700 transform hover:scale-105"
-    style={{ backgroundImage: `url(${slide.img})` }}
-  ></div>
+          {/* Background Image */}
+          <div
+            className="w-full h-[850px] bg-cover bg-center rounded-lg transition-transform duration-700 transform hover:scale-105"
+            style={{ backgroundImage: `url(${slide.img})` }}
+          ></div>
 
-  {/* Overlay with Animated Text */}
-  <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#000] bg-opacity-65 rounded-lg">
-    {/* Fade Animation for Title */}
-    <Fade triggerOnce>
-      <h2 className="text-[140px] font-bold mb-4 font-Roboto text-white uppercase">
-        {slide.title}
-      </h2>
-    </Fade>
+          {/* Overlay with Animated Text */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#000] bg-opacity-65 rounded-lg">
+            {/* Fade Animation for Title */}
+            <Fade triggerOnce>
+              <h2 className="md:text-9xl font-bold font-Roboto text-[#CDF7FF] uppercase text-center">
+                {slide.title}
+              </h2>
 
-    {/* Zoom Animation for Description */}
-    <Zoom triggerOnce>
-      <p className="text-lg text-white">{slide.description}</p>
-    </Zoom>
-  </div>
-</SwiperSlide>
+            </Fade>
+
+            {/* Zoom Animation for Description */}
+            <Zoom triggerOnce>
+              <p className="text-9xl font-bold font-Roboto text-[#CDF7FF] uppercase text-center"style={{
+                WebkitTextStroke: '1px #CDF7FF', 
+                WebkitTextFillColor: 'transparent', 
+              }} >{slide.description}</p>
+            </Zoom>
+          </div>
+        </SwiperSlide>
       ))}
     </Swiper>
   );
 };
 
 export default Slider;
+
+
+
 
 
 

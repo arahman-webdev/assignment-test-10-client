@@ -26,7 +26,7 @@ const Navbar = () => {
                 user ? <NavLink to='/add-review' className="flex items-center gap-1 hover:text-[#0d83fd]">Add Review</NavLink> : ''
             }
             {
-                user ? <NavLink to='/watch-list' className="flex items-center gap-1 hover:text-[#0d83fd]">Game WatchList</NavLink> : ''
+                user ? <NavLink to='/watch-list' className="flex items-center gap-1 hover:text-[#0d83fd]">My WatchList</NavLink> : ''
             }
 
             {

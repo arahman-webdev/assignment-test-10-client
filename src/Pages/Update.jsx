@@ -1,19 +1,21 @@
 import React, { useContext } from 'react';
+
+import { AuthContext } from '../AuthProvider';
+import { useLoaderData } from 'react-router-dom';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
-import { AuthContext } from '../AuthProvider';
-import { Typewriter } from 'react-simple-typewriter'
-import review from '../assets/images/addReview.jpg'
 import Swal from 'sweetalert2';
 
-const AddReview = () => {
+const Update = () => {
+
+
+    const review = useLoaderData()
+    console.log(review)
 
     const { user } = useContext(AuthContext)
-
     const handleAddReview = e => {
         e.preventDefault();
-
-
+        
         const form = e.target;
         const name = form.name.value;
         const email = form.email.value;
@@ -23,71 +25,41 @@ const AddReview = () => {
         const publishingYear = form.publishingYear.value;
         const photoUrl = form.photourl.value;
         const reviewDescription = form.reviewDescription.value;
-        const reviewInfo = { name, email, gameTitle, genre, rating, publishingYear, photoUrl, reviewDescription }
-        console.log(reviewInfo)
-        fetch('http://localhost:5000/reviews', {
-            method: "POST",
+        const upadatedReviewInfo = { name, email, gameTitle, genre, rating, publishingYear, photoUrl, reviewDescription }
+
+        fetch(`http://localhost:5000/reviews/${review._id}`, {
+            method: "PUT",
             headers: {
                 "Content-type": "application/json"
             },
-            body: JSON.stringify(reviewInfo)
+            body: JSON.stringify(upadatedReviewInfo)
         })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.insertedId) {
-                    Swal.fire({
-                        title: "Good job!",
-                        text: "You added the review!",
-                        icon: "success",
-                        background: "#CDF7FF",
-                        color: "#111",
-                        width: '450px',
-                    });
-                }
-            })
-
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data)
+            if(data.modifiedCount >0){
+                Swal.fire({
+                    title: "Good job!",
+                    text: "You updated!",
+                    icon: "success",
+                    background: "#CDF7FF", 
+                    color: "#111", 
+                    width: '450px',
+                  });
+            }
+        })
+        console.log('clickde')
     }
     return (
+
         <div className='bg-[#060D15]'>
-
             <Navbar></Navbar>
-
             <main className='bg-[#010407]'>
                 <div>
-                    <div className="bg-cover bg-center" style={{ backgroundImage: "url('https://i.ibb.co.com/YQv3WYt/add-Review.jpg')" }}>
-                        <div className='pt-56 pb-44 pl-56'>
-                            <h1 className='text-7xl font-serif font-bold text-[#CDF7FF] shadow-2xl shadow-black ' style={{ textShadow: '0 0 3px #ff0000, 0 0 5px #0000ff' }}>
-                                {' '}
-                                <span className='text-[#CDF7FF] font-bold'>
-                                    {' '}
-                                    <Typewriter
-                                        words={['Write Your Best Review ', 'Write Your Best Experience']}
-                                        loop={Infinity}
-                                        cursor
-                                        cursorStyle='_'
-                                        typeSpeed={70}
-                                        deleteSpeed={50}
-                                        delaySpeed={1000}
-                                    />
-                                </span>
-                            </h1>
-                        </div>
-                        <div className="bg-gradient-to-r from-gray-900 via-gray-800 to-black py-8 text-center">
-                            <h1
-                                className="text-5xl font-bold uppercase tracking-wide text-transparent bg-clip-text"
-                                style={{
-                                    WebkitTextStroke: '1px #CDF7FF', // Outline color
-                                    WebkitTextFillColor: 'transparent', // Transparent fill
-                                }}
-                            >
-                                Gaming and Esports
-                            </h1>
-                        </div>
-                    </div>
                     <div className='bg-[#102638] text-[#CDF7FF] w-4/5 mx-auto mt-10 mb-10 rounded-lg shadow-2xl'>
                         <div className='p-10 text-center space-y-5'>
-                            <h2 className='text-5xl font-bold'>Add New Review</h2>
+                            <h2 className='text-4xl'>Update Review</h2>
+                            <p>Effortlessly edit and enhance your reviews by updating game details, ratings, and descriptions to ensure accurate and up-to-date feedback.</p>
                         </div>
                         <div>
                             <div className="card  w-full  shrink-0 shadow-2xl">
@@ -131,7 +103,6 @@ const AddReview = () => {
                                                 <option value="RPG">RPG</option>
                                                 <option value="Adventure">Adventure</option>
                                                 <option value="Strategy">Strategy</option>
-                                                <option value="Strategy">Journey</option>
                                             </select>
                                         </div>
                                     </div>
@@ -145,7 +116,7 @@ const AddReview = () => {
                                             <label className="label">
                                                 <span className="label-text text-[#CDF7FF]">Rating (1-5)</span>
                                             </label>
-                                            <input type="number" placeholder="Write rating" name='rating' className="input input-bordered bg-[#101A23]" required />
+                                            <input type="text" placeholder="Write rating" name='rating' className="input input-bordered bg-[#101A23]" required />
                                         </div>
 
                                         <div className="form-control w-full">
@@ -156,14 +127,6 @@ const AddReview = () => {
                                         </div>
                                     </div>
 
-                                    <div className="md:flex gap-4">
-                                        <div className="form-control w-full">
-                                            <label className="label">
-                                                <span className="label-text text-[#CDF7FF]">Photo Url</span>
-                                            </label>
-                                            <input type="text" placeholder="photo url" name='photourl' className="input input-bordered bg-[#101A23]" required />
-                                        </div>
-                                    </div>
 
 
                                     <div className="form-control w-full">
@@ -181,7 +144,7 @@ const AddReview = () => {
                                     </div>
 
                                     <div className="form-control mt-6">
-                                        <button className="btn bg-[#101A23] hover:bg-[#CDF7FF] text-[#CDF7FF] hover:text-[#101A23]">Add Review</button>
+                                        <button className="btn bg-[#101A23] hover:bg-[#CDF7FF] text-[#CDF7FF] hover:text-[#101A23]">Update Review</button>
                                     </div>
                                 </form>
                             </div>
@@ -191,27 +154,8 @@ const AddReview = () => {
             </main>
             <Footer></Footer>
         </div>
+
     );
 };
 
-export default AddReview;
-
-
-
-{/* <h1 style={{ paddingTop: '5rem', margin: 'auto 0', fontWeight: 'normal' }}>
-Life is simple{' '}
-<span style={{ color: 'red', fontWeight: 'bold' }}>
-    {/* Style will be inherited from the parent element */}
-// <Typewriter
-//     words={['Eat', 'Sleep', 'Code', 'Repeat!']}
-//     loop={5}
-//     cursor
-//     cursorStyle='_'
-//     typeSpeed={70}
-//     deleteSpeed={50}
-//     delaySpeed={1000}
-// onLoopDone={handleDone}
-// onType={handleType}
-// />
-// </span>
-// </h1>
+export default Update;

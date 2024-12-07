@@ -22,7 +22,7 @@ const Details = () => {
             const genre = review?.genre;
             const reviewerDescription = review?.reviewDescription;
 
-            const detailInfor = {coverPhoto, title, reviewer, reviewerEmail, reviewerRating, genre, reviewerDescription }
+            const detailInfor = { coverPhoto, title, reviewer, reviewerEmail, reviewerRating, genre, reviewerDescription }
 
             fetch('http://localhost:5000/watchlists', {
                 method: "POST",
@@ -34,27 +34,29 @@ const Details = () => {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
-                    if(data.insertedId){
+                    if (data.insertedId) {
+
                         Swal.fire({
-                            icon: "error",
-                            title: "Oops...",
-                            text: "Please register or login!",
-                            background: "#CDF7FF", // Set your desired background color
-                            color: "#111", // Optional: Set text color for better readability
+                            title: "Good job!",
+                            text: "You added the review!",
+                            icon: "success",
+                            background: "#CDF7FF",
+                            color: "#111",
                             width: '450px',
-                          });
+                        });
+
                     }
                 })
-        }else{
+        } else {
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
                 text: "Please register or login!",
-                background: "#CDF7FF", // Set your desired background color
-                color: "#111", // Optional: Set text color for better readability
+                background: "#CDF7FF",
+                color: "#111",
                 width: '450px',
-              });
-              
+            });
+
             navigate('/auth/login')
         }
 
@@ -63,12 +65,12 @@ const Details = () => {
     return (
         <div className="bg-black text-[#CDF7FF] py-20">
             <div className="p-6 w-4/5 mx-auto">
-                <div className="lg:flex gap-10">
+                <div className="grid lg:grid-cols-2 gap-10">
                     <div>
                         <img
                             src={review.photoUrl}
                             alt={review.gameTitle}
-                            className="w-full h-96 object-cover rounded-lg"
+                            className="w-full  object-cover rounded-lg"
                         />
                     </div>
                     <div>
