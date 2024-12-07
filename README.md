@@ -1,8 +1,18 @@
-# React + Vite
+# Project Name: Chill Gammer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+# Live Url : https://assignment-test-10.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Key Features Of This Website
+
+1. User Reviews and Ratings:
+2. User Authentication
+3. Sorting and Filtering Options
+4. Responsive Design and Navigation
+5. Private Routes for user only
+
+
+# npm packages I have used.
+
+1. Type writer
+2. React Tooltip
