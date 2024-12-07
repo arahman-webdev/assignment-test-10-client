@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../AuthProvider';
 import { Link, useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -10,6 +10,13 @@ const MyReview = () => {
   const reviews = useLoaderData();
   const loadedUserReviews = user ? reviews.filter(review => review.email === user.email) : [];
   const [userReviews, setUserReviews] = useState(loadedUserReviews);
+  const [loading, setLoading] = useState(true)
+
+
+  useEffect(() => {
+      const loadingTimer = setTimeout(() => setLoading(false), 1000);
+      return () => clearTimeout(loadingTimer); // Cleanup timer
+    }, []);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -45,6 +52,15 @@ const MyReview = () => {
       }
     });
   };
+
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen bg-black">
+        <span className="loading loading-bars loading-lg text-[#CDF7FF]"></span>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-[#102638]">

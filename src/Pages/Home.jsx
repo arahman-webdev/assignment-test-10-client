@@ -10,6 +10,23 @@ const Home = () => {
 
     const reviews = useLoaderData()
 
+    const [loading, setLoading] = useState(true)
+
+
+    useEffect(() => {
+        const loadingTimer = setTimeout(() => setLoading(false), 1000);
+        return () => clearTimeout(loadingTimer); // Cleanup timer
+      }, []);
+
+
+      if (loading) {
+        return (
+          <div className="flex justify-center items-center h-screen bg-black">
+            <span className="loading loading-bars loading-lg text-[#CDF7FF]"></span>
+          </div>
+        );
+      }
+
     // const [reviews, setReviews] = useState([])
     // useEffect(() => {
     //     fetch('http://localhost:5000/reviews')

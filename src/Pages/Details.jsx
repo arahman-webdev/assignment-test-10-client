@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider";
 import { FaStar } from "react-icons/fa";
@@ -9,6 +9,22 @@ const Details = () => {
     const review = useLoaderData();
     const navigate = useNavigate()
     console.log(review)
+
+    const [loadingTimer, setLoadingTimer] = useState(true)
+
+    useEffect(() => {
+      const loadingTimer = setTimeout(() => setLoadingTimer(false), 1000);
+      return () => clearTimeout(loadingTimer); // Cleanup timer
+    }, []);
+    
+    
+    if (loadingTimer) {
+        return (
+          <div className="flex justify-center items-center h-screen bg-black">
+            <span className="loading loading-bars loading-lg text-[#CDF7FF]"></span>
+          </div>
+        );
+      }
 
     const handleWatchList = () => {
         if (user) {

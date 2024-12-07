@@ -1,14 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Navbar from '../Components/Navbar';
 import { useLoaderData } from 'react-router-dom';
 import Footer from '../Components/Footer';
 import Review from './Review';
+import { AuthContext } from '../AuthProvider';
 
 const AllReviews = () => {
+
+
   const initialReviews = useLoaderData(); // Load initial reviews
   const [reviews, setReviews] = useState(initialReviews); // Store filtered/sorted reviews
   const [sortOption, setSortOption] = useState(''); // Track sorting option
   const [filterGenre, setFilterGenre] = useState(''); // Track selected genre filter
+  const [loadingTimer, setLoadingTimer] = useState(true)
+
+  useEffect(() => {
+    const loadingTimer = setTimeout(() => setLoadingTimer(false), 1000);
+    return () => clearTimeout(loadingTimer); // Cleanup timer
+  }, []);
+
 
   useEffect(() => {
     // Apply sorting and filtering whenever sortOption or filterGenre changes
@@ -31,10 +41,17 @@ const AllReviews = () => {
     setReviews(sortedAndFilteredReviews);
   }, [sortOption, filterGenre, initialReviews]);
 
+  if (loadingTimer) {
+    return (
+      <div className="flex justify-center items-center h-screen bg-black">
+        <span className="loading loading-bars loading-lg text-[#CDF7FF]"></span>
+      </div>
+    );
+  }
+
   return (
     <div className='bg-[#060D15]'>
       <Navbar></Navbar>
-
       {/* Banner Section */}
       <section>
         <div className="relative bg-cover bg-center" style={{ backgroundImage: "url('https://i.ibb.co.com/Rywj4hP/reviews-banner.jpg')" }}>
@@ -48,7 +65,7 @@ const AllReviews = () => {
 
       {/* Sort and Filter Section */}
       <section className='w-4/5 mx-auto pt-10'>
-        <div className="flex justify-between items-center mb-6">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-6 space-y-4 md:space-y-0">
           <div>
             <label htmlFor="sort" className="text-white mr-3">Sort By:</label>
             <select

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider';
 import { MdDelete } from "react-icons/md";
@@ -12,6 +12,14 @@ const Watchlist = () => {
     // const loadedUserWatchlist = user ? watchlists.filter(watchlist => watchlist.reviewerEmail === user.email) : []
 
     const [userWatchlist, setWatchlist] = useState(loadedUserWatchlist)
+    const [loadingTimer, setLoadingTimer] = useState(true)
+
+    useEffect(() => {
+      const loadingTimer = setTimeout(() => setLoadingTimer(false), 1000);
+      return () => clearTimeout(loadingTimer); // Cleanup timer
+    }, []);
+    
+    
 
     console.log(userWatchlist)
 
@@ -60,6 +68,13 @@ const Watchlist = () => {
     }
 
 
+    if (loadingTimer) {
+        return (
+          <div className="flex justify-center items-center h-screen bg-black">
+            <span className="loading loading-bars loading-lg text-[#CDF7FF]"></span>
+          </div>
+        );
+      }
 
 
 

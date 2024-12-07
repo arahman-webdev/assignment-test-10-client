@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import { AuthContext } from '../AuthProvider';
@@ -6,7 +6,25 @@ import { Typewriter } from 'react-simple-typewriter'
 import review from '../assets/images/addReview.jpg'
 import Swal from 'sweetalert2';
 
+
 const AddReview = () => {
+
+    const [loadingTimer, setLoadingTimer] = useState(true)
+
+useEffect(() => {
+  const loadingTimer = setTimeout(() => setLoadingTimer(false), 1000);
+  return () => clearTimeout(loadingTimer); // Cleanup timer
+}, []);
+
+
+if (loadingTimer) {
+    return (
+      <div className="flex justify-center items-center h-screen bg-black">
+        <span className="loading loading-bars loading-lg text-[#CDF7FF]"></span>
+      </div>
+    );
+  }
+
 
     const { user } = useContext(AuthContext)
 
