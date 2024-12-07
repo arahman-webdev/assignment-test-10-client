@@ -84,7 +84,7 @@ const Watchlist = () => {
                             <tr className="bg-[#060D15] text-[#CDF7FF]">
                                 <th className="border border-gray-300 px-4 py-2">Game Title</th>
                                 <th className="border border-gray-300 px-4 py-2">Rating</th>
-                                <th className="border border-gray-300 px-4 py-2">Reviewer</th>
+                                <th className="border border-gray-300 px-4 py-2">Publishing Year</th>
                                 <th className="border border-gray-300 px-4 py-2">Delete</th>
                             </tr>
                         </thead>
@@ -102,7 +102,7 @@ const Watchlist = () => {
                                             ))}
                                         </span>
                                     </td>
-                                    <td className="border border-gray-300 px-4 py-2">{watchlist.reviewer}</td>
+                                    <td className="border border-gray-300 px-4 py-2">{watchlist.publishingYear}</td>
                                     <td className="border border-gray-300 px-4 py-2">
                                         <button
                                             className="px-3 py-1 text-3xl"

@@ -3,7 +3,7 @@ import React from 'react';
 const Questions = () => {
     return (
         <div className='bg-[#102638] pt-10'>
-            <div className='text-center text-white pt-10 space-y-5'>
+            <div className='text-center text-white pt-10 space-y-5 w-4/5 mx-auto'>
                 <h2 className='text-[#CDF7FF] font-bold text-4xl'>Common Questions And Answers</h2>
                 <p className='text-[#cdf7ffa2]'>Find answers to your most common questions about our website, including features, reviews, submissions, updates, and community guidelines.</p>
             </div>

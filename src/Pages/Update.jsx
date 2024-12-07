@@ -15,7 +15,7 @@ const Update = () => {
     const { user } = useContext(AuthContext)
     const handleAddReview = e => {
         e.preventDefault();
-        
+
         const form = e.target;
         const name = form.name.value;
         const email = form.email.value;
@@ -34,20 +34,20 @@ const Update = () => {
             },
             body: JSON.stringify(upadatedReviewInfo)
         })
-        .then(res => res.json())
-        .then(data =>{
-            console.log(data)
-            if(data.modifiedCount >0){
-                Swal.fire({
-                    title: "Good job!",
-                    text: "You updated!",
-                    icon: "success",
-                    background: "#CDF7FF", 
-                    color: "#111", 
-                    width: '450px',
-                  });
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: "Good job!",
+                        text: "You updated!",
+                        icon: "success",
+                        background: "#CDF7FF",
+                        color: "#111",
+                        width: '450px',
+                    });
+                }
+            })
         console.log('clickde')
     }
     return (
@@ -127,7 +127,12 @@ const Update = () => {
                                         </div>
                                     </div>
 
-
+                                    <div className="form-control w-full">
+                                        <label className="label">
+                                            <span className="label-text text-[#CDF7FF]">Photo Url</span>
+                                        </label>
+                                        <input type="text" placeholder="photo url" name='photourl' className="input input-bordered bg-[#101A23]" required />
+                                    </div>
 
                                     <div className="form-control w-full">
                                         <label className="label">

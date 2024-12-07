@@ -20,9 +20,10 @@ const Details = () => {
             const reviewerEmail = review?.email;
             const reviewerRating = review?.rating;
             const genre = review?.genre;
+            const publishingYear = review?.publishingYear;
             const reviewerDescription = review?.reviewDescription;
 
-            const detailInfor = { coverPhoto, title, reviewer, reviewerEmail, reviewerRating, genre, reviewerDescription }
+            const detailInfor = { coverPhoto, title, reviewer, reviewerEmail, reviewerRating, genre, reviewerDescription, publishingYear }
 
             fetch('http://localhost:5000/watchlists', {
                 method: "POST",
@@ -87,6 +88,7 @@ const Details = () => {
                         <div className="space-y-3">
                             <p className="mt-2">Genre: {review.genre}</p>
                             <p className="mt-2">Reviewer: {review.name}</p>
+                            <p className="mt-2">Publishin Year: {review.publishingYear}</p>
                             <p className="mt-2 text-gray-500">Email: {review.email}</p>
                         </div>
                         <button

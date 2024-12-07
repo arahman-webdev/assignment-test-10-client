@@ -24,7 +24,7 @@ const Home = () => {
                 <Slider></Slider>
             </div>
             <section className='pt-20 pb-20 w-4/5 mx-auto '>
-            <input type="checkbox" value="synthwave" className="toggle theme-controller" />
+            
                 <div>
                     <h2 className='text-5xl font-bold text-[#CDF7FF] uppercase space-x-7 text-center mb-10'>About Us</h2>
                 </div>
@@ -41,10 +41,10 @@ const Home = () => {
                         <div className=" mb-12">
                             <h4 className="bg-[#253849] font-bold uppercase mb-4 inline-block p-4 rounded-sm text-[#2badc4]">Who We Are</h4>
                             <div>
-                                <h2 className="text-5xl font-bold leading-relaxed">
-                                    Our Best Experience a Magic<br /> of The World Popular Game
+                                <h2 className="font-bold leading-relaxed text-5xl w-full">
+                                    Our Best Experience a Magic of The World Popular Game
                                 </h2>
-                                <p className='py-16'>As Gamestorm, we continue to open doors to new worlds every day and are working excitedly to collect new games' review and unique ideas to play the best popular game in the world!</p>
+                                <p className='py-16  w-full'>As Gamestorm, we continue to open doors to new worlds every day and are working excitedly to collect new games' review and unique ideas to play the best popular game in the world!</p>
                             </div>
                         </div>
 
