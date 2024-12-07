@@ -56,13 +56,13 @@ const AddReview = () => {
             <main className='bg-[#010407]'>
                 <div>
                     <div className="bg-cover bg-center" style={{ backgroundImage: "url('https://i.ibb.co.com/YQv3WYt/add-Review.jpg')" }}>
-                        <div className='pt-56 pb-44 pl-56'>
-                            <h1 className='text-7xl font-serif font-bold text-[#CDF7FF] shadow-2xl shadow-black ' style={{ textShadow: '0 0 3px #ff0000, 0 0 5px #0000ff' }}>
-                                {' '}
+                        <div className='pt-56 pb-44 md:pl-56 pl-5'>
+                            <h1 className='text-3xl lg:text-7xl font-serif font-bold text-[#CDF7FF] shadow-2xl shadow-black ' style={{ textShadow: '0 0 3px #ff0000, 0 0 5px #0000ff' }}>
+                            Write {' '}
                                 <span className='text-[#CDF7FF] font-bold'>
-                                    {' '}
+                                Your  {' '}
                                     <Typewriter
-                                        words={['Write Your Best Review ', 'Write Your Best Experience']}
+                                        words={[' Best Review ', ' Best Experience']}
                                         loop={Infinity}
                                         cursor
                                         cursorStyle='_'

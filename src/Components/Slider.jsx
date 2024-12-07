@@ -52,7 +52,7 @@ const Slider = () => {
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#000] bg-opacity-65 rounded-lg">
             {/* Fade Animation for Title */}
             <Fade triggerOnce>
-              <h2 className="md:text-9xl font-bold font-Roboto text-[#CDF7FF] uppercase text-center">
+              <h2 className="md:text-9xl text-6xl font-bold font-Roboto text-[#CDF7FF] uppercase text-center">
                 {slide.title}
               </h2>
 
@@ -60,7 +60,7 @@ const Slider = () => {
 
             {/* Zoom Animation for Description */}
             <Zoom triggerOnce>
-              <p className="text-9xl font-bold font-Roboto text-[#CDF7FF] uppercase text-center"style={{
+              <p className="md:text-9xl text-6xl font-bold font-Roboto text-[#CDF7FF] uppercase text-center"style={{
                 WebkitTextStroke: '1px #CDF7FF', 
                 WebkitTextFillColor: 'transparent', 
               }} >{slide.description}</p>
