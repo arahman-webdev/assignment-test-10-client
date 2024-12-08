@@ -21,6 +21,14 @@ const Login = () => {
         loginUser(email, password)
             .then((res) => {
                 console.log(res);
+                Swal.fire({
+                    title: "Good job!",
+                    text: "Welcome back! You are successfully registered!",
+                    icon: "success",
+                    background: "#CDF7FF",
+                    color: "#111",
+                    width: '450px',
+                });
                 const user = res.user;
                 console.log(user)
                 setUser(user);
@@ -43,6 +51,9 @@ const Login = () => {
                     title: "Good job!",
                     text: "Welcome back! You are successfully registered!",
                     icon: "success",
+                    background: "#CDF7FF",
+                    color: "#111",
+                    width: '450px',
                 });
                 const user = res.user;
                 setUser(user)
@@ -55,6 +66,9 @@ const Login = () => {
                     title: "Error!",
                     text: "Google sign-in failed. Please try again!",
                     icon: "error",
+                    background: "#CDF7FF",
+                    color: "#111",
+                    width: '450px',
                 });
             });
     };
@@ -63,6 +77,7 @@ const Login = () => {
         <div style={{ minHeight: 'calc(100vh - 200px)' }} className="flex items-center">
             <div className="max-w-lg mx-auto bg-[#060D15] text-[#CDF7FF] dark:bg-gray-800 rounded-lg shadow-xl px-8 py-10 flex flex-col items-center justify-center w-full relative border">
                 <h1 className="text-xl font-bold text-center mb-8">Login</h1>
+               
                 <form onSubmit={handleLogin} className="w-full flex flex-col gap-4">
                     {/* Email Input */}
                     <div className="flex items-start flex-col justify-start">
@@ -97,7 +112,7 @@ const Login = () => {
                     </div>
 
                     <button type="submit" className="bg-[#CDF7FF] text-[#060D15] hover:bg-[#abeefc] font-medium py-2 px-4 rounded-md shadow-sm">
-                        
+                        Login
                     </button>
                 </form>
 

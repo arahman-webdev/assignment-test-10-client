@@ -4,12 +4,12 @@ const Questions = () => {
     return (
         <div className='bg-[#102638] pt-10'>
             <div className='text-center text-white pt-10 space-y-5 w-4/5 mx-auto'>
-                <h2 className='text-[#CDF7FF] font-bold text-4xl'>Common Questions And Answers</h2>
+                <h2 className='text-[#CDF7FF] font-bold text-2xl md:text-4xl'>Common Questions And Answers</h2>
                 <p className='text-[#cdf7ffa2]'>Find answers to your most common questions about our website, including features, reviews, submissions, updates, and community guidelines.</p>
             </div>
             <div className='gap-8 grid w-4/5 mx-auto py-20 '>
                 <div tabIndex={0} className="collapse collapse-arrow  border border-[#7ea5ad] py-5 rounded-none bg-[#060D15] text-[#CDF7FF]">
-                    <div className="collapse-title text-xl font-bold">What is the purpose of your website?</div>
+                    <div className="collapse-title text-lg md:text-xl font-bold">What is the purpose of your website?</div>
                     <div className="collapse-content">
                         <p>Our website is designed to provide game enthusiasts with detailed reviews, ratings, and insights into the best free and premium games. We aim to help gamers make informed choices while fostering a community where they can share their experiences and opinions.</p>
                     </div>

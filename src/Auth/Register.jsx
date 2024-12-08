@@ -36,6 +36,7 @@ const Register = () => {
                 text: 'Passwords must be 6 characters or longer',
                 icon: 'error',
                 confirmButtonText: 'Ok'
+                
             })
         }
         // if (password !== confirmPassword) {
@@ -75,8 +76,11 @@ const Register = () => {
                 setSuccess(true);
                 Swal.fire({
                     title: "Good job!",
-                    text: "Welcome back! You are successfully registered.!",
-                    icon: "success"
+                    text: "Welcome back! You are successfully registered!",
+                    icon: "success",
+                    background: "#CDF7FF",
+                    color: "#111",
+                    width: '450px',
                 });
                 navigate('/');
                 form.reset();

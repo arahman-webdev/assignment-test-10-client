@@ -6,6 +6,8 @@ import Questions from '../HomeComponents/Questions';
 import { Link, useLoaderData } from 'react-router-dom';
 
 
+
+
 const Home = () => {
 
     const reviews = useLoaderData()
@@ -16,18 +18,18 @@ const Home = () => {
     useEffect(() => {
         const loadingTimer = setTimeout(() => setLoading(false), 1000);
         return () => clearTimeout(loadingTimer); // Cleanup timer
-      }, []);
+    }, []);
 
-      useEffect(() => {
+    useEffect(() => {
         document.title = "Home | Chill Gammer";
-      }, []);
-      if (loading) {
+    }, []);
+    if (loading) {
         return (
-          <div className="flex justify-center items-center h-screen bg-black">
-            <span className="loading loading-bars loading-lg text-[#CDF7FF]"></span>
-          </div>
+            <div className="flex justify-center items-center h-screen bg-black">
+                <span className="loading loading-bars loading-lg text-[#CDF7FF]"></span>
+            </div>
         );
-      }
+    }
 
 
 
@@ -38,14 +40,14 @@ const Home = () => {
                 <Slider></Slider>
             </div>
             <section className='pt-20 pb-20 w-4/5 mx-auto '>
-            
+
                 <div>
                     <h2 className='text-5xl font-bold text-[#CDF7FF] uppercase space-x-7 text-center mb-10'>About Us</h2>
                 </div>
 
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-16'>
                     <div className='relative'>
-                        <div className='border rounded-3xl'><img className='rounded-3xl' src="https://i.ibb.co.com/mS7FnZZ/about.webp" alt="" /></div>
+                        <div className='border rounded-3xl'><img className='rounded-3xl' src="https://i.ibb.co.com/p2NQjk9/about.jpg" alt="" /></div>
                         <div className="absolute inset-0 bg-[#111] bg-opacity-45"></div>
                     </div>
                     <div className=" text-[#CDF7FF] py-20 px-8">
