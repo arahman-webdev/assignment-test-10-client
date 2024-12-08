@@ -53,30 +53,19 @@ const Navbar = () => {
             <div className="navbar   w-4/5 mx-auto p-7">
                 <div className="navbar-start">
                     <div className="dropdown">
-                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="h-5 w-5"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M4 6h16M4 12h8m-8 6h16" />
-                            </svg>
+                        <div tabIndex={0} role="button" className="btn bg-[#CDF7FF] text-[#101A23] lg:hidden">
+                            <FaBars md:size={25} size={15}></FaBars>
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow gap-5 text-[#CDF7FF]">
+                            className="menu menu-sm dropdown-content rounded-box  mt-3 w-52 p-2 shadow gap-5 text-[#CDF7FF] bg-[#101A23] z-50">
                             {links}
                         </ul>
                     </div>
-                    <Link to='/' className="btn btn-ghost text-3xl font-bold font-Roboto text-[#CDF7FF]">Chill Gammer</Link>
+                    <Link to='/' className="btn btn-ghost  md:text-3xl text-2xl font-bold font-Roboto text-[#CDF7FF]">Chill Gammer</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1 gap-5  font-Roboto text-[#CDF7FF] text-base">
+                    <ul className="menu menu-horizontal px-1 gap-5  font-Roboto text-[#CDF7FF] text-base z-50">
                         {links}
                     </ul>
                 </div>
@@ -90,14 +79,14 @@ const Navbar = () => {
                                 onClick={() => setDropdown(!dropdown)}
                             />
                             {dropdown && (
-                                <div className="absolute right-0 mt-2 bg-[#F4F5FE] shadow-md rounded-lg  z-50 border w-[300px] p-8">
+                                <div className="absolute right-0 mt-2 bg-[#101A23] shadow-md rounded-lg  z-50 border w-[300px] p-8">
                                     <div className="w-500px">
                                         <div>
                                             <img
                                                 className="w-10 h-10 rounded-full mx-auto"
                                                 src={user.photoURL} alt="" />
                                         </div>
-                                        <p className="text-gray-700 font-semibold text-center">{user.displayName || "User"}</p>
+                                        <p className="text-[#CDF7FF] font-semibold text-center">{user.displayName || "User"}</p>
                                         <hr className="my-2" />
                                         <button
                                             onClick={handleLogOut}

@@ -18,7 +18,9 @@ const Home = () => {
         return () => clearTimeout(loadingTimer); // Cleanup timer
       }, []);
 
-
+      useEffect(() => {
+        document.title = "Home | Chill Gammer";
+      }, []);
       if (loading) {
         return (
           <div className="flex justify-center items-center h-screen bg-black">
@@ -97,7 +99,7 @@ const Home = () => {
             </section>
             <section className='w-4/5 mx-auto pt-20 pb-28'>
                 <div>
-                    <h1 className='text-7xl font-Roboto font-bold text-[#CDF7FF] pt-10 pb-11'>Our Games Review</h1>
+                    <h1 className='md:text-7xl text-4xl font-Roboto font-bold text-[#CDF7FF] pt-10 pb-11'>Our Games Review</h1>
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7'>
                     {

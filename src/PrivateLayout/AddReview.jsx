@@ -17,6 +17,10 @@ useEffect(() => {
 }, []);
 
 
+useEffect(() => {
+    document.title = "Add review | Chill Gammer";
+  }, []);
+
 if (loadingTimer) {
     return (
       <div className="flex justify-center items-center h-screen bg-black">
@@ -105,7 +109,7 @@ if (loadingTimer) {
                     </div>
                     <div className='bg-[#102638] text-[#CDF7FF] w-4/5 mx-auto mt-10 mb-10 rounded-lg shadow-2xl'>
                         <div className='p-10 text-center space-y-5'>
-                            <h2 className='text-5xl font-bold'>Add New Review</h2>
+                            <h2 className='md:text-5xl text-3xl font-bold'>Add New Review</h2>
                         </div>
                         <div>
                             <div className="card  w-full  shrink-0 shadow-2xl">

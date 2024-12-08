@@ -19,7 +19,9 @@ const Watchlist = () => {
       return () => clearTimeout(loadingTimer); // Cleanup timer
     }, []);
     
-    
+    useEffect(() => {
+        document.title = "My watchlist | Chill Gammer";
+      }, []);
 
     console.log(userWatchlist)
 
@@ -84,7 +86,7 @@ const Watchlist = () => {
             <div className="w-4/5 mx-auto py-16">
                 <div className="bg-gradient-to-r from-gray-900 via-gray-800 to-black py-8 text-center mb-5">
                     <h1
-                        className="text-5xl font-bold uppercase tracking-wide text-transparent bg-clip-text"
+                        className="md:text-5xl text-3xl font-bold uppercase tracking-wide text-transparent bg-clip-text"
                         style={{
                             WebkitTextStroke: '1px #CDF7FF', // Outline color
                             WebkitTextFillColor: 'transparent', // Transparent fill
@@ -120,7 +122,7 @@ const Watchlist = () => {
                                     <td className="border border-gray-300 px-4 py-2">{watchlist.publishingYear}</td>
                                     <td className="border border-gray-300 px-4 py-2">
                                         <button
-                                            className="px-3 py-1 text-3xl"
+                                            className="py-1 px-4 text-3xl bg-[#1a4270ad] rounded-md"
                                             onClick={() => handleDelete(watchlist._id)}
                                         >
                                             <MdDelete />

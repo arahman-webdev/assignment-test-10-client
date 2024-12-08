@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import googleImg from '../assets/images/google.png';
 import { AuthContext } from '../AuthProvider';
 import Swal from 'sweetalert2';
@@ -7,10 +7,11 @@ import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 
 const Login = () => {
-    const { signInWithGoogle, loginUser } = useContext(AuthContext);
+    const { signInWithGoogle, loginUser, setUser } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
+    const location = useLocation();
     const navigate = useNavigate();
-
+    console.log(location)
     const handleLogin = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -20,6 +21,15 @@ const Login = () => {
         loginUser(email, password)
             .then((res) => {
                 console.log(res);
+                const user = res.user;
+                console.log(user)
+                setUser(user);
+                navigate(location?.state ? location.state: '/')
+                const from = location.state?.from?.pathname || "/"
+                navigate(from, {replace: true})
+                // const from = location.state?.from?.pathname || "/";
+                
+                // navigate(from, { replace: true });
             })
             .catch((error) => {
                 console.log(error);
@@ -34,6 +44,9 @@ const Login = () => {
                     text: "Welcome back! You are successfully registered!",
                     icon: "success",
                 });
+                const user = res.user;
+                setUser(user)
+                
                 const from = location.state?.from?.pathname || "/";
                 navigate(from, { replace: true });
             })

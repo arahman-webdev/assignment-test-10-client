@@ -18,6 +18,11 @@ const MyReview = () => {
       return () => clearTimeout(loadingTimer); // Cleanup timer
     }, []);
 
+    useEffect(() => {
+      document.title = "My review | Chill Gammer";
+    }, []);
+
+
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -68,7 +73,7 @@ const MyReview = () => {
         {/* Page Title */}
         <div className="bg-gradient-to-r from-gray-900 via-gray-800 to-black py-8 text-center mb-5">
           <h1
-            className="text-5xl font-bold uppercase tracking-wide text-transparent bg-clip-text"
+            className="md:text-5xl text-3xl font-bold uppercase tracking-wide text-transparent bg-clip-text"
             style={{
               WebkitTextStroke: '1px #CDF7FF', // Outline color
               WebkitTextFillColor: 'transparent', // Transparent fill
@@ -87,7 +92,7 @@ const MyReview = () => {
                   <th className="border border-gray-300 px-4 py-2">Game Title</th>
                   <th className="border border-gray-300 px-4 py-2">Rating</th>
                   <th className="border border-gray-300 px-4 py-2 hidden sm:table-cell">Reviewer</th>
-                  <th className="border border-gray-300 px-4 py-2">Actions</th>
+                  <th className="border border-gray-300 px-4 py-2">Update/Delete</th>
                 </tr>
               </thead>
               <tbody>

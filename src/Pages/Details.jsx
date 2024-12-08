@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { Navigate, useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider";
 import { FaStar } from "react-icons/fa";
 import Swal from "sweetalert2";
@@ -8,15 +8,23 @@ const Details = () => {
     const { user } = useContext(AuthContext)
     const review = useLoaderData();
     const navigate = useNavigate()
-    console.log(review)
+    const location = useLocation();
+    console.log(location)
+    // console.log(review)
 
     const [loadingTimer, setLoadingTimer] = useState(true)
+
+
+    useEffect(() => {
+        document.title = "Details | chill Gammer";
+      }, []);
 
     useEffect(() => {
       const loadingTimer = setTimeout(() => setLoadingTimer(false), 1000);
       return () => clearTimeout(loadingTimer); // Cleanup timer
     }, []);
     
+
     
     if (loadingTimer) {
         return (
@@ -26,33 +34,29 @@ const Details = () => {
         );
       }
 
-    const handleWatchList = () => {
+      const handleWatchList = () => {
         if (user) {
-
-
-            const coverPhoto = review?.photoUrl;
-            const title = review?.gameTitle
-            const reviewer = review?.name;
-            const reviewerEmail = review?.email;
-            const reviewerRating = review?.rating;
-            const genre = review?.genre;
-            const publishingYear = review?.publishingYear;
-            const reviewerDescription = review?.reviewDescription;
-
-            const detailInfor = { coverPhoto, title, reviewer, reviewerEmail, reviewerRating, genre, reviewerDescription, publishingYear }
-
+            const detailInfo = {
+                coverPhoto: review?.photoUrl,
+                title: review?.gameTitle,
+                reviewer: review?.name,
+                reviewerEmail: review?.email,
+                reviewerRating: review?.rating,
+                genre: review?.genre,
+                publishingYear: review?.publishingYear,
+                reviewerDescription: review?.reviewDescription,
+            };
+    
             fetch('https://assignment-test-10-server.vercel.app/watchlists', {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json",
                 },
-                body: JSON.stringify(detailInfor)
+                body: JSON.stringify(detailInfo)
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
                     if (data.insertedId) {
-
                         Swal.fire({
                             title: "Good job!",
                             text: "You added the review!",
@@ -61,9 +65,11 @@ const Details = () => {
                             color: "#111",
                             width: '450px',
                         });
-
                     }
                 })
+                .catch((error) => {
+                    console.error("Error adding to watchlist:", error);
+                });
         } else {
             Swal.fire({
                 icon: "error",
@@ -73,12 +79,14 @@ const Details = () => {
                 color: "#111",
                 width: '450px',
             });
-
-            navigate('/auth/login')
+    
+            // Navigate to login page with redirect back to this page
+            // navigate('/auth/login', { state: { from: location } });
+            navigate('/auth/login', {state: {from: location}})
+            
+            
         }
-
-
-    }
+    };
     return (
         <div className="bg-black text-[#CDF7FF] py-20">
             <div className="p-6 w-4/5 mx-auto">

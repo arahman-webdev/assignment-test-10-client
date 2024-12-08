@@ -1,9 +1,12 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../AuthProvider';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 const PrivateMyReview = ({ children }) => {
 
     const { user, loading } = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
+    console.log(location)
 
     if (loading) {
         return <div className="min-h-screen items-center justify-center flex">
@@ -15,7 +18,8 @@ const PrivateMyReview = ({ children }) => {
     }
     return (
 
-        <Navigate to='/auth/login'></Navigate>
+       
+        navigate('/auth/login', {state: {from: location}})
     );
 };
 

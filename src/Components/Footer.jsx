@@ -42,7 +42,7 @@ const Footer = () => {
           {/* First Column start*/}
           <div>
             <div>
-              <h2 className="text-xl font-semibold  mb-4 text-[#6facbe]">Chill Gammer</h2>
+              <h2 className="text-xl font-semibold  mb-4 text-[#6facbe]"><img className="w-20 h-20" src="https://i.ibb.co.com/nck3HhZ/logo.jpg" alt="" /></h2>
               <div className="text-[#809DA5]">
                 <p>Sherpur</p>
                 <p>Sherpur, Bogura 5840</p>

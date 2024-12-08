@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider';
 
 const PrivateAddReview = ({children}) => {
@@ -7,6 +7,8 @@ const PrivateAddReview = ({children}) => {
     const {user, loading} = useContext(AuthContext)
 
     const location = useLocation()
+    const navigate = useNavigate()
+    console.log(location)
     
     if (loading) {
         return <div className="min-h-screen items-center justify-center flex">
@@ -20,8 +22,11 @@ const PrivateAddReview = ({children}) => {
 
     return (
 
-        // <Navigate to='/auth/login' state={{ from: location }} replace></Navigate>
-        <Navigate to="/auth/login" state={{ from: location }} replace />
+        
+        // <Navigate to="/auth/login" state={location.pathname} />
+        navigate("auth/login", {state: {from: location}})
+        
+
     );
 };
 
