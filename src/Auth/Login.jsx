@@ -97,10 +97,13 @@ const Login = () => {
                     </div>
 
                     <button type="submit" className="bg-[#CDF7FF] text-[#060D15] hover:bg-[#abeefc] font-medium py-2 px-4 rounded-md shadow-sm">
-                        Login
+                        
                     </button>
                 </form>
 
+                <div onClick={() =>setShowPassword(!showPassword)} className='absolute top-52 right-9 cursor-pointer'>
+                {showPassword? "Hide":"Show"}
+                </div>
                 <div className="mt-4 text-center">
                     <p>Don't have an account? <Link to="/auth/register" className="text-red-500 cursor-pointer hover:text-red-700">Register Now</Link></p>
                 </div>

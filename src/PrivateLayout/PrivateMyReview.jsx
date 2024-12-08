@@ -20,6 +20,7 @@ const PrivateMyReview = ({ children }) => {
 
        
         navigate('/auth/login', {state: {from: location}})
+        
     );
 };
 

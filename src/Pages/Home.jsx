@@ -29,12 +29,7 @@ const Home = () => {
         );
       }
 
-    // const [reviews, setReviews] = useState([])
-    // useEffect(() => {
-    //     fetch('https://assignment-test-10-server.vercel.app/reviews')
-    //         .then(res => res.json())
-    //         .then(data => setReviews(data))
-    // }, [])
+
 
 
     return (
@@ -60,7 +55,7 @@ const Home = () => {
                         <div className=" mb-12">
                             <h4 className="bg-[#253849] font-bold uppercase mb-4 inline-block p-4 rounded-sm text-[#2badc4]">Who We Are</h4>
                             <div>
-                                <h2 className="font-bold leading-relaxed text-5xl w-full">
+                                <h2 className="font-bold leading-relaxed text-2xl md:text-5xl w-full">
                                     Our Best Experience a Magic of The World Popular Game
                                 </h2>
                                 <p className='py-16  w-full'>As Gamestorm, we continue to open doors to new worlds every day and are working excitedly to collect new games' review and unique ideas to play the best popular game in the world!</p>

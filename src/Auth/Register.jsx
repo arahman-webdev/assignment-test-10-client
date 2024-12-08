@@ -7,6 +7,7 @@ import { updateProfile } from 'firebase/auth';
 import { auth } from '../firebaseInit';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
+import { FaEye, FaEyeSlash } from 'react-icons/fa6';
 
 
 const Register = () => {
@@ -14,6 +15,7 @@ const Register = () => {
     const { createUser, signInWithGoogle } = useContext(AuthContext)
     const [success, setSuccess] = useState(null)
     const [errorMessage, setErrorMessage] = useState('')
+    const [showPassword, setShowPassword] = useState(false)
     const navigate = useNavigate()
     const location = useLocation()
     const handleRegister = e => {
@@ -167,7 +169,7 @@ const Register = () => {
                     <div className="flex items-start flex-col justify-start">
                         <label htmlFor="password" className="text-sm text-[#CDF7FF] dark:text-gray-200 mr-2">Password:</label>
                         <input
-                            type="password"
+                            type={showPassword?"text":"password"}
                             placeholder='password'
                             id="password"
                             name="password"
@@ -184,9 +186,9 @@ const Register = () => {
                     </button>
                 </form>
 
-                {/* <div onClick={() => setShowPassword(!showPassword)} className='absolute bottom-[252px] right-10 cursor-pointer'>
-                    {showPassword ? <FaEye /> : <FaEyeSlash />}
-                </div> */}
+                <div onClick={() => setShowPassword(!showPassword)} className='absolute bottom-[250px] right-10 cursor-pointer text-[#b4eefa]'>
+                    {showPassword ? "Hide" : "Show"}
+                </div>
 
                 <div className="mt-4 text-center ">
                     <p className='text-[#CDF7FF]'>Already have an account? <Link to='/auth/login' className="text-[#9be9f8] cursor-pointer">Login now</Link></p>

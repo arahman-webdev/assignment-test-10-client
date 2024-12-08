@@ -53,7 +53,7 @@ const Navbar = () => {
             <div className="navbar   w-4/5 mx-auto p-7">
                 <div className="navbar-start">
                     <div className="dropdown">
-                        <div tabIndex={0} role="button" className="btn bg-[#CDF7FF] text-[#101A23] lg:hidden">
+                        <div tabIndex={0} role="button" className="p-3 rounded-md bg-[#CDF7FF] text-[#101A23] lg:hidden">
                             <FaBars md:size={25} size={15}></FaBars>
                         </div>
                         <ul
@@ -62,7 +62,7 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
-                    <Link to='/' className="btn btn-ghost  md:text-3xl text-2xl font-bold font-Roboto text-[#CDF7FF]">Chill Gammer</Link>
+                    <Link to='/' className="btn btn-ghost  md:text-3xl text-xl font-bold font-Roboto text-[#CDF7FF]">Chill Gammer</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 gap-5  font-Roboto text-[#CDF7FF] text-base z-50">
@@ -90,7 +90,7 @@ const Navbar = () => {
                                         <hr className="my-2" />
                                         <button
                                             onClick={handleLogOut}
-                                            className="block w-full text-left px-4 py-2 text-red-600 hover:bg-[#e4e6f8] rounded flex items-center gap-2"
+                                            className="block w-full text-left px-2 md:px-4 py-2 text-red-600 hover:bg-[#e4e6f8] rounded flex items-center gap-2"
                                         >
                                             <FaSignOutAlt />
                                             Sign Out
@@ -101,7 +101,7 @@ const Navbar = () => {
                             )}
                         </div>
                     ) : (
-                        <Link to="/auth/login" className=" bg-[#CDF7FF] rounded-full px-6 py-2 text-black font-semibold font-Roboto">
+                        <Link to="/auth/login" className=" bg-[#CDF7FF] rounded-full px-4 md:px-6 py-2 text-black font-semibold font-Roboto">
                             Login
                         </Link>
                     )}
