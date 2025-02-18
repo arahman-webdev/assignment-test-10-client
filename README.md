@@ -1,18 +1,37 @@
-# Project Name: Chill Gammer
+🎮 Chill Gamer
+Live URL: https://assignment-test-10.netlify.app/
 
+📌 Description
+Chill Gamer is a game review platform where users can browse, review, and rate games. The website includes authentication, private routes, and sorting/filtering options for a seamless user experience.
 
-# Live Url : https://assignment-test-10.netlify.app/
+🚀 Key Features
+✅ User Reviews and Ratings – Users can submit and read game reviews.
+✅ User Authentication – Secure login and registration using Firebase.
+✅ Sorting and Filtering Options – Easily find the best games based on ratings and categories.
+✅ Responsive Design and Navigation – Works on all devices for a smooth experience.
+✅ Private Routes for Users Only – Restricts access to certain pages for authenticated users.
 
-# Key Features Of This Website
+# 🛠 Main Technologies Used
+Frontend:
+React.js (Component-based UI)
+React Router (Navigation & Private Routes)
+Tailwind CSS & DaisyUI (Styling & UI Components)
+Axios (Handling API Requests)
+Firebase Authentication (User Login & Signup)
 
-1. User Reviews and Ratings:
-2. User Authentication
-3. Sorting and Filtering Options
-4. Responsive Design and Navigation
-5. Private Routes for user only
+# Backend:
+Node.js & Express.js (API & Server)
+MongoDB & Mongoose (Database Management)
+JWT Authentication (Secure User Authentication)
 
-
-# npm packages I have used.
-
-1. Type writer
-2. React Tooltip
+# 📦 Project Dependencies
+ # Frontend Dependencies:
+ "react": "^18.x",
+"react-dom": "^18.x",
+"react-router-dom": "^6.x",
+"axios": "^1.x",
+"tailwindcss": "^3.x",
+"daisyui": "^3.x",
+"firebase": "^9.x",
+"react-icons": "^4.x",
+"react-toastify": "^9.x"
