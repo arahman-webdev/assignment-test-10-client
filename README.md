@@ -1,7 +1,7 @@
 🎮 Chill Gamer
 Live URL: https://assignment-test-10.netlify.app/
 
-📌 Description
+
 Chill Gamer is a game review platform where users can browse, review, and rate games. The website includes authentication, private routes, and sorting/filtering options for a seamless user experience.
 
 🚀 Key Features
