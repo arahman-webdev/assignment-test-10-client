@@ -34,4 +34,16 @@ JWT Authentication (Secure User Authentication)
 "daisyui": "^3.x",
 "firebase": "^9.x",
 "react-icons": "^4.x",
-"react-toastify": "^9.x"
+"react-sweet alert": "^11.x"
+
+ # Backend Dependencies:
+ "express": "^4.x",
+"cors": "^2.x",
+"dotenv": "^16.x",
+
+# How to Run the Project Locally?
+1️⃣ Clone the Repository
+2️⃣ Install Dependencies
+3️⃣ Setup Environment Variables
+
+
